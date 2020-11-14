@@ -2,7 +2,7 @@ name: Download Workflow Artifact
 description: Download and extract an artifact associated with given workflow and run number
 author: toddreed
 inputs:
-  github_token:
+  token:
     description: GitHub token
     required: false
     default: ${{github.token}}
