@@ -101,11 +101,11 @@ async function run()
 {
     try
     {
-        const token = core.getInput(Inputs.Token, {required: false})
-        const repository = core.getInput(Inputs.Repo, {required: false})
+        const token = core.getInput(Inputs.Token, {required: true})
+        const repository = core.getInput(Inputs.Repo, {required: true})
         const workflow_name = core.getInput(Inputs.WorkflowName, {required: true})
         const run_number = core.getInput(Inputs.RunNumber, {required: true})
-        const names = core.getInput(Inputs.Names, {required: false})
+        const names = core.getInput(Inputs.Names, {required: true})
         const path = core.getInput(Inputs.Path, {required: true})
 
         let resolvedPath
