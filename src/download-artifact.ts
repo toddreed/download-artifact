@@ -36,7 +36,7 @@ async function get_workflow_id(client: GitHubClient, owner: string, repo: string
 }
 
 async function get_run_id(client: GitHubClient, owner: string, repo: string, workflow_id: number, run_number: number): Promise<number | null> {
-    let response = await client.actions.listWorkflowRunsForRepo({owner: owner, repo: repo, workflow_id: workflow_id})
+    let response = await client.actions.listWorkflowRuns({owner: owner, repo: repo, workflow_id: workflow_id})
     let runs = response.data.workflow_runs.filter(run => run.run_number == run_number)
     switch (runs.length) {
         case 0:
