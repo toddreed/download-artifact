@@ -1,0 +1,28 @@
+name: Download Workflow Artifact
+description: Download and extract an artifact associated with given workflow and run number
+author: toddreed
+inputs:
+  github_token:
+    description: GitHub token
+    required: false
+    default: ${{github.token}}
+  repo:
+    description: Repository name with owner (like actions/checkout)
+    required: false
+    default: ${{github.repository}}
+  workflow:
+    description: Workflow name
+    required: true
+  run:
+    description: Run number
+    required: true
+  names:
+    description: Artifact names to download (comma separated)
+    required: true
+  path:
+    description: Where to unpack the artifact
+    required: false
+    default: "./"
+runs:
+  using: node12
+  main: dist/index.js
