@@ -84,3 +84,6 @@ jobs:
    ```
 
    
+## Acknowledgements
+
+This project was written after studying [actions/download-artifact](https://github.com/actions/download-artifact) and [dawidd6/action-download-artifact](https://github.com/dawidd6/action-download-artifact);  ideas and code were borrowed from these projects.
