@@ -8271,11 +8271,11 @@ function download(owner, repo, token, workflow_name, run_number, artifact_names,
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const token = core.getInput(Inputs.Token, { required: false });
-            const repository = core.getInput(Inputs.Repo, { required: false });
+            const token = core.getInput(Inputs.Token, { required: true });
+            const repository = core.getInput(Inputs.Repo, { required: true });
             const workflow_name = core.getInput(Inputs.WorkflowName, { required: true });
             const run_number = core.getInput(Inputs.RunNumber, { required: true });
-            const names = core.getInput(Inputs.Names, { required: false });
+            const names = core.getInput(Inputs.Names, { required: true });
             const path = core.getInput(Inputs.Path, { required: true });
             let resolvedPath;
             // resolve tilde expansions, path.replace only replaces the first occurrence of a pattern
