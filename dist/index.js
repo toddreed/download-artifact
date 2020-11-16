@@ -8213,7 +8213,7 @@ function get_workflow_id(client, owner, repo, workflow_name) {
 }
 function get_run_id(client, owner, repo, workflow_id, run_number) {
     return __awaiter(this, void 0, void 0, function* () {
-        let response = yield client.actions.listWorkflowRunsForRepo({ owner: owner, repo: repo, workflow_id: workflow_id });
+        let response = yield client.actions.listWorkflowRuns({ owner: owner, repo: repo, workflow_id: workflow_id });
         let runs = response.data.workflow_runs.filter(run => run.run_number == run_number);
         switch (runs.length) {
             case 0:
@@ -8221,6 +8221,9 @@ function get_run_id(client, owner, repo, workflow_id, run_number) {
             case 1:
                 return runs[0].id;
             default:
+                core.debug(`Found these runs:`);
+                for (const r of runs)
+                    core.debug(`{id: ${r.id}, run_number: ${r.run_number} workflow_id: ${r.workflow_id}}`);
                 throw new Error(`More than one run found matching the run number ${run_number}`);
         }
     });
@@ -8296,7 +8299,15 @@ function run() {
         }
     });
 }
-run();
+function test() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let path = '~/tmp/artifacts';
+        let resolved_path = path_1.resolve(path.replace('~', os.homedir()));
+        yield download('toddreed', 'That-Word', '7c837006b9aa328abc02168d4aee34f17777d8ab', 'Build', 4, ['ipa', 'xcarchive'], resolved_path);
+    });
+}
+test();
+//run()
 
 
 /***/ }),
