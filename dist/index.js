@@ -8299,15 +8299,7 @@ function run() {
         }
     });
 }
-function test() {
-    return __awaiter(this, void 0, void 0, function* () {
-        let path = '~/tmp/artifacts';
-        let resolved_path = path_1.resolve(path.replace('~', os.homedir()));
-        yield download('toddreed', 'That-Word', '7c837006b9aa328abc02168d4aee34f17777d8ab', 'Build', 4, ['ipa', 'xcarchive'], resolved_path);
-    });
-}
-test();
-//run()
+run();
 
 
 /***/ }),
